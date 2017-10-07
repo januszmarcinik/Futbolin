@@ -7,18 +7,37 @@ namespace Futbolin.WebAPI.Areas.Football.Controllers
     [Route("api/leagues")]
     public class LeaguesController : Controller
     {
-        private readonly ILeagueService _leagueService;
+        private readonly ILeaguesService _leaguesRepository;
 
-        public LeaguesController(ILeagueService leagueService)
+        public LeaguesController(ILeaguesService leaguesService)
         {
-            _leagueService = leagueService;
+            _leaguesRepository = leaguesService;
         }
 
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _leagueService.ReadAsync());
+            var leagues = await _leaguesRepository.ReadAsync();
+            if (leagues == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(leagues);
+        }
+
+        [HttpGet]
+        [Route("{name}")]
+        public async Task<IActionResult> Get(string name)
+        {
+            var league = await _leaguesRepository.ReadAsync(name);
+            if (league == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(league);
         }
     }
 }

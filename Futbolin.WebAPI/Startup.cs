@@ -23,8 +23,8 @@ namespace Futbolin.WebAPI
         {
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
 
-            services.AddScoped<ILeagueRepository, LeagueRepository>();
-            services.AddScoped<ILeagueService, LeagueService>();
+            services.AddScoped<ILeaguesRepository, LeaguesRepository>();
+            services.AddScoped<ILeaguesService, LeaguesService>();
 
             services.AddMvc();
         }

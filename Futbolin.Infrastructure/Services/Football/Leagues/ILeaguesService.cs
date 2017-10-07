@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace Futbolin.Infrastructure.Services.Football.Leagues
 {
-    public interface ILeagueService
+    public interface ILeaguesService
     {
         Task<IEnumerable<LeagueDTO>> ReadAsync();
+        Task<LeagueDTO> ReadAsync(string name);
     }
 }

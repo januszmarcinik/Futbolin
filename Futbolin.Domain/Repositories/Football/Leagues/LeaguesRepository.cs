@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Futbolin.Domain.Repositories.Football.Leagues
 {
-    public class LeagueRepository : RepositoryBase<League>, ILeagueRepository
+    public class LeaguesRepository : RepositoryBase<League>, ILeaguesRepository
     {
         private List<League> _fakeRepository = new List<League>()
         {

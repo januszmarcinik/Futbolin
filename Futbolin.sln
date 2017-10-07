@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.Core", "Futbolin.Core\Futbolin.Core.csproj", "{A7E15E99-25DD-4B79-ACC2-520DBA311EE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futbolin.Core", "Futbolin.Core\Futbolin.Core.csproj", "{A7E15E99-25DD-4B79-ACC2-520DBA311EE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.Domain", "Futbolin.Domain\Futbolin.Domain.csproj", "{E9F18252-994C-453D-A985-04D76E4530F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futbolin.Domain", "Futbolin.Domain\Futbolin.Domain.csproj", "{E9F18252-994C-453D-A985-04D76E4530F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.Infrastructure", "Futbolin.Infrastructure\Futbolin.Infrastructure.csproj", "{B5097380-1C63-4F37-B31D-7EE09F577433}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futbolin.Infrastructure", "Futbolin.Infrastructure\Futbolin.Infrastructure.csproj", "{B5097380-1C63-4F37-B31D-7EE09F577433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.WebAPI", "Futbolin.WebAPI\Futbolin.WebAPI.csproj", "{5E4D524C-F5A6-4581-9124-B2AFEAEC36AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futbolin.WebAPI", "Futbolin.WebAPI\Futbolin.WebAPI.csproj", "{5E4D524C-F5A6-4581-9124-B2AFEAEC36AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.UnitTests", "Futbolin.UnitTests\Futbolin.UnitTests.csproj", "{BA9896C1-8CBE-4579-BDF0-6AB516526555}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.WebAPI.IntegrationTests", "Futbolin.WebAPI.IntegrationTests\Futbolin.WebAPI.IntegrationTests.csproj", "{6E0A8357-2C98-49D8-961C-59E1F9519596}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futbolin.Tests", "Futbolin.Tests\Futbolin.Tests.csproj", "{B26A8BB5-9DC0-4D44-B3AB-2A53CD3045D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +35,10 @@ Global
 		{5E4D524C-F5A6-4581-9124-B2AFEAEC36AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E4D524C-F5A6-4581-9124-B2AFEAEC36AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E4D524C-F5A6-4581-9124-B2AFEAEC36AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA9896C1-8CBE-4579-BDF0-6AB516526555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA9896C1-8CBE-4579-BDF0-6AB516526555}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA9896C1-8CBE-4579-BDF0-6AB516526555}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA9896C1-8CBE-4579-BDF0-6AB516526555}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E0A8357-2C98-49D8-961C-59E1F9519596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E0A8357-2C98-49D8-961C-59E1F9519596}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E0A8357-2C98-49D8-961C-59E1F9519596}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E0A8357-2C98-49D8-961C-59E1F9519596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B26A8BB5-9DC0-4D44-B3AB-2A53CD3045D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26A8BB5-9DC0-4D44-B3AB-2A53CD3045D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B26A8BB5-9DC0-4D44-B3AB-2A53CD3045D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B26A8BB5-9DC0-4D44-B3AB-2A53CD3045D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
