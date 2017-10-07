@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Futbolin.Infrastructure.Services.Football.Leagues;
+using Futbolin.Domain.Repositories.Football.Leagues;
 
 namespace Futbolin.WebAPI
 {
@@ -23,6 +25,9 @@ namespace Futbolin.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ILeagueRepository, LeagueRepository>();
+            services.AddScoped<ILeagueService, LeagueService>();
+
             services.AddMvc();
         }
 

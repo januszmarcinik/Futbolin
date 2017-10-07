@@ -16,5 +16,12 @@ namespace Futbolin.Domain.Models.Football
         protected League()
         {
         }
+
+        public League(string name, string country)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            Country = country;
+        }
     }
 }
