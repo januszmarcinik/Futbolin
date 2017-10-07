@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Futbolin.Infrastructure.Services.Football.Leagues;
 using Futbolin.Domain.Repositories.Football.Leagues;
+using AutoMapper;
+using Futbolin.Infrastructure.Mappers;
 
 namespace Futbolin.WebAPI
 {
@@ -25,6 +21,8 @@ namespace Futbolin.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
+
             services.AddScoped<ILeagueRepository, LeagueRepository>();
             services.AddScoped<ILeagueService, LeagueService>();
 
