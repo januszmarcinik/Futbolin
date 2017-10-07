@@ -1,9 +1,10 @@
 ﻿using Futbolin.Core.Models;
+using System.Threading.Tasks;
 
 namespace Futbolin.Core.Repositories
 {
     public interface IRepositoryCreate<T> where T : IEntity
     {
-        void Create(T dbEntry);
+        Task CreateAsync(T dbEntry);
     }
 }

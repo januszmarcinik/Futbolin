@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Futbolin.Infrastructure.Services.Football.Leagues;
+using System.Threading.Tasks;
 
 namespace Futbolin.WebAPI.Areas.Football.Controllers
 {
@@ -15,9 +16,9 @@ namespace Futbolin.WebAPI.Areas.Football.Controllers
 
         [HttpGet]
         [Route("")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_leagueService.Read());
+            return Ok(await _leagueService.ReadAsync());
         }
     }
 }

@@ -2,6 +2,7 @@
 using Futbolin.Domain.Repositories.Football.Leagues;
 using Futbolin.Infrastructure.DTO.Football;
 using AutoMapper;
+using System.Threading.Tasks;
 
 namespace Futbolin.Infrastructure.Services.Football.Leagues
 {
@@ -16,9 +17,9 @@ namespace Futbolin.Infrastructure.Services.Football.Leagues
             _leagueRepository = leagueRepository;
         }
 
-        public IEnumerable<LeagueDTO> Read()
+        public async Task<IEnumerable<LeagueDTO>> ReadAsync()
         {
-            return _mapper.Map<IEnumerable<LeagueDTO>>(_leagueRepository.Read());
+            return _mapper.Map<IEnumerable<LeagueDTO>>(await _leagueRepository.ReadAsync());
         }
     }
 }

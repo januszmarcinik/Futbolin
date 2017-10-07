@@ -1,6 +1,7 @@
 ﻿using Futbolin.Core.Repositories;
 using Futbolin.Domain.Models.Football;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Futbolin.Domain.Repositories.Football.Leagues
 {
@@ -12,7 +13,7 @@ namespace Futbolin.Domain.Repositories.Football.Leagues
             new League("Ekstraklasa", "Polska")
         };
 
-        public override IEnumerable<League> Read()
+        public override async Task<IEnumerable<League>> ReadAsync()
         {
             return _fakeRepository;
         }
