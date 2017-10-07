@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Futbolin.Core.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class Match
+    public class Match : IEntity
     {
         public Guid Id { get; protected set; }
 

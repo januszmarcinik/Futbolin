@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Futbolin.Core.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class League
+    public class League : IEntity
     {
         public Guid Id { get; protected set; }
         public string Name { get; protected set; }

@@ -1,10 +1,11 @@
-﻿using Futbolin.Domain.Enums;
+﻿using Futbolin.Core.Models;
+using Futbolin.Domain.Enums;
 using System;
 using System.Collections.Generic;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class MatchDay
+    public class MatchDay : IEntity
     {
         public Guid Id { get; protected set; }
         public byte Number { get; protected set; }
