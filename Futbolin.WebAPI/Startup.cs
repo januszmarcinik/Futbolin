@@ -6,6 +6,7 @@ using Futbolin.Infrastructure.Services.Football.Leagues;
 using Futbolin.Domain.Repositories.Football.Leagues;
 using AutoMapper;
 using Futbolin.Infrastructure.Mappers;
+using Futbolin.Core.Settings;
 
 namespace Futbolin.WebAPI
 {
@@ -21,6 +22,7 @@ namespace Futbolin.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<GeneralSettings>(Configuration.GetSection("GeneralSettings"));
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
 
             services.AddScoped<ILeaguesRepository, LeaguesRepository>();
