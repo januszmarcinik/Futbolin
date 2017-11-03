@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Futbolin.Core.Settings;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Futbolin.WebAPI.Controllers
 {
@@ -20,6 +21,20 @@ namespace Futbolin.WebAPI.Controllers
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [Route("Moderator")]
+        [Authorize(Roles = "Moderator")]
+        public string Moderator()
+        {
+            return "Moderator";
+        }
+
+        [Route("Ankieter")]
+        [Authorize(Roles = "Ankieter")]
+        public string Ankieter()
+        {
+            return "Ankieter";
         }
 
         // GET api/values/author

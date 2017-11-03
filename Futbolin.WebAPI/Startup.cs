@@ -7,6 +7,10 @@ using Futbolin.Domain.Repositories.Football.Leagues;
 using AutoMapper;
 using Futbolin.Infrastructure.Mappers;
 using Futbolin.Core.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace Futbolin.WebAPI
 {
@@ -22,11 +26,26 @@ namespace Futbolin.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<GeneralSettings>(Configuration.GetSection("GeneralSettings"));
+            services.Configure<GeneralSettings>(Configuration.GetSection("General"));
+            services.Configure<JwtTokenSettings>(Configuration.GetSection("JwtToken"));
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
 
             services.AddScoped<ILeaguesRepository, LeaguesRepository>();
             services.AddScoped<ILeaguesService, LeaguesService>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.Configuration = new OpenIdConnectConfiguration();
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidIssuer = Configuration["JwtToken:Issuer"],
+                        ValidateAudience = false,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtToken:Key"])),
+                        ValidateLifetime = true
+                    };
+                });
 
             services.AddMvc();
         }
@@ -38,6 +57,8 @@ namespace Futbolin.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseAuthentication();
 
             app.UseMvc();
         }

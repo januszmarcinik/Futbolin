@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Account\Data\" />
     <Folder Include="Areas\Football\Data\" />
     <Folder Include="Areas\Football\Models\" />
     <Folder Include="Areas\Football\Views\" />

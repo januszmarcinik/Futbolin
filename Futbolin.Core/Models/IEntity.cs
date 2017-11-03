@@ -1,4 +1,6 @@
-﻿namespace Futbolin.Core.Models
+﻿using System;
+
+namespace Futbolin.Core.Models
 {
     public interface IEntity
     {
