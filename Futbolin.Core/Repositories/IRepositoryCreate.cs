@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Futbolin.Core.Repositories
 {
-    public interface IRepositoryCreate<T> where T : IEntity
+    public interface IRepositoryCreate<T> where T : Entity
     {
         Task CreateAsync(T dbEntry);
     }

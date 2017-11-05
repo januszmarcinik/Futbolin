@@ -3,14 +3,14 @@ using System;
 
 namespace Futbolin.Domain.Models.Identity
 {
-    public class User : IEntity
+    public class User : Entity
     {
-        public Guid Id { get; protected set; }
-        public string Email { get; protected set; }
-        public string Password { get; protected set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
-        protected User()
+        protected override void Validate()
         {
+            throw new NotImplementedException();
         }
     }
 }

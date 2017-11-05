@@ -3,9 +3,8 @@ using System;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class Goal : IEntity
+    public class Goal : Entity
     {
-        public Guid Id { get; protected set; }
         public byte Minute { get; protected set; }
         public bool IsPenelty { get; protected set; }
         public bool IsOwnGoal { get; protected set; }
@@ -22,6 +21,11 @@ namespace Futbolin.Domain.Models.Football
 
         protected Goal()
         {
+        }
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
         }
     }
 }

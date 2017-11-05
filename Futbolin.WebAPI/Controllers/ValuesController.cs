@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Futbolin.Core.Settings;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace Futbolin.WebAPI.Controllers
 {
@@ -10,10 +12,12 @@ namespace Futbolin.WebAPI.Controllers
     public class ValuesController : Controller
     {
         private readonly GeneralSettings _generalSettings;
+        private readonly ILogger _logger;
 
-        public ValuesController(IOptions<GeneralSettings> generalSettings)
+        public ValuesController(IOptions<GeneralSettings> generalSettings, ILogger logger)
         {
             _generalSettings = generalSettings.Value;
+            _logger = logger;
         }
 
         // GET api/values
@@ -35,6 +39,20 @@ namespace Futbolin.WebAPI.Controllers
         public string Ankieter()
         {
             return "Ankieter";
+        }
+
+        [HttpGet]
+        [Route("LogTest")]
+        public IActionResult LogTest(string text)
+        {
+            _logger.LogCritical($"Critial: {text}");
+            _logger.LogDebug($"Debug: {text}");
+            _logger.LogError(new Exception("Jakiś tam błąd"), text);
+            _logger.LogInformation($"Information: {text}");
+            _logger.LogTrace($"Trace: {text}");
+            _logger.LogWarning($"Warning: {text}");
+
+            return Ok();
         }
 
         // GET api/values/author

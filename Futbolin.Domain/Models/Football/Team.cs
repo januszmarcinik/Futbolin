@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class Team : IEntity
+    public class Team : Entity
     {
-        public Guid Id { get; protected set; }
         public string Name { get; protected set; }
         public string Coach { get; protected set; }
 
@@ -17,6 +16,11 @@ namespace Futbolin.Domain.Models.Football
 
         protected Team()
         {
+        }
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
         }
     }
 }

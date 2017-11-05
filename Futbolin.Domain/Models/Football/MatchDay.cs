@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class MatchDay : IEntity
+    public class MatchDay : Entity
     {
-        public Guid Id { get; protected set; }
         public byte Number { get; protected set; }
         public SeasonRound Round { get; protected set; }
 
@@ -21,6 +20,11 @@ namespace Futbolin.Domain.Models.Football
 
         protected MatchDay()
         {
+        }
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
         }
     }
 }

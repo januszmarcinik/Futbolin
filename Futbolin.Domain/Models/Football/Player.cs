@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 namespace Futbolin.Domain.Models.Football
 {
-    public class Player : IEntity
+    public class Player : Entity
     {
-        public Guid Id { get; protected set; }
         public string FirstName { get; protected set; }
         public string LastName { get; protected set; }
         public string DisplayedName { get; protected set; }
@@ -24,6 +23,11 @@ namespace Futbolin.Domain.Models.Football
 
         protected Player()
         {
+        }
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
         }
     }
 }
