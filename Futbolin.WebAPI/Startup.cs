@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Futbolin.Domain.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Futbolin.WebAPI
 {
@@ -26,6 +28,11 @@ namespace Futbolin.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration["Database:ConnectionString"]);
+            });
+
             services.Configure<GeneralSettings>(Configuration.GetSection("General"));
             services.Configure<JwtTokenSettings>(Configuration.GetSection("JwtToken"));
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());

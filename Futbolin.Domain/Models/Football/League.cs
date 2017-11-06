@@ -9,8 +9,10 @@ namespace Futbolin.Domain.Models.Football
         public string Name { get; protected set; }
         public string Country { get; protected set; }
 
-        public virtual ICollection<Team> Teams { get; protected set; }
-        public virtual ICollection<MatchDay> MatchDays { get; protected set; }
+        //public virtual ICollection<Team> Teams { get; protected set; }
+        //public virtual ICollection<MatchDay> MatchDays { get; protected set; }
+
+        protected League() { }
 
         public League(Guid id, string name, string country)
         {
