@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
-using Futbolin.Domain.Repositories.Football.Leagues;
 using Futbolin.Infrastructure.DTO.Football;
 using AutoMapper;
 using System.Threading.Tasks;
 using Futbolin.Domain.Models.Football;
 using System;
+using Futbolin.Domain.Data;
 
 namespace Futbolin.Infrastructure.Services.Football.Leagues
 {
     public class LeaguesService : ILeaguesService
     {
         private readonly IMapper _mapper;
-        private readonly ILeaguesRepository _leaguesRepository;
+        private readonly IRepository<League> _leaguesRepository;
 
-        public LeaguesService(IMapper mapper, ILeaguesRepository leaguesRepository)
+        public LeaguesService(IMapper mapper, IRepository<League> leaguesRepository)
         {
             _mapper = mapper;
             _leaguesRepository = leaguesRepository;

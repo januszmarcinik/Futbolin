@@ -1,17 +1,16 @@
-﻿using Futbolin.Core.Data;
-using Futbolin.Core.Models;
+﻿using Futbolin.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Futbolin.Core.Repositories
+namespace Futbolin.Domain.Data
 {
-    public abstract class RepositoryBase<T> : IRepositoryRead<T>, IRepositoryCreate<T>, IRepositoryUpdate<T>, IRepositoryDelete<T> where T : Entity
+    public class Repository<T> : IRepository<T> where T : Entity
     {
-        private readonly IDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public RepositoryBase(IDbContext context)
+        public Repository(ApplicationDbContext context)
         {
             _context = context;
         }

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Futbolin.Infrastructure.Services.Football.Leagues;
-using Futbolin.Domain.Repositories.Football.Leagues;
 using AutoMapper;
 using Futbolin.Infrastructure.Mappers;
 using Futbolin.Core.Settings;
@@ -13,6 +12,7 @@ using System.Text;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Futbolin.Domain.Data;
 using Microsoft.EntityFrameworkCore;
+using Futbolin.Domain.Models.Football;
 
 namespace Futbolin.WebAPI
 {
@@ -37,7 +37,7 @@ namespace Futbolin.WebAPI
             services.Configure<JwtTokenSettings>(Configuration.GetSection("JwtToken"));
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
 
-            services.AddScoped<ILeaguesRepository, LeaguesRepository>();
+            services.AddScoped<IRepository<League>, Repository<League>>();
             services.AddScoped<ILeaguesService, LeaguesService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

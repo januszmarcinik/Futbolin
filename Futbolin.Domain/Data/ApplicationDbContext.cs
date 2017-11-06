@@ -1,5 +1,4 @@
-﻿using Futbolin.Core.Data;
-using Futbolin.Core.Models;
+﻿using Futbolin.Core.Models;
 using Futbolin.Domain.Data.Configurations.Football;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Futbolin.Domain.Data
 {
-    public class ApplicationDbContext : DbContext, IDbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
 

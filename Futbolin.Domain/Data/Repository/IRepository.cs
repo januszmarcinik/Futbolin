@@ -3,12 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Futbolin.Core.Repositories
+namespace Futbolin.Domain.Data
 {
-    public interface IRepositoryRead<T> where T : Entity
+    public interface IRepository<T> where T : Entity
     {
         Task<T> ReadAsync(Guid id);
         Task<IEnumerable<T>> ReadAsync();
         Task<T> ReadAsync(Func<T, bool> predicate);
+        Task CreateAsync(T dbEntry);
+        Task UpdateAsync(T dbEntry);
+        Task DeleteAsync(Guid id);
+        Task DeleteAsync(T dbEntry);
     }
 }
